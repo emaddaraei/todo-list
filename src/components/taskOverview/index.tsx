@@ -1,6 +1,14 @@
 import ReportCard from './ReportCard';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faChartLine,
+  faCircleCheck,
+  faTriangleExclamation,
+  faCalendarDay,
+} from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 
-export default function TaskOverview() {
+const TaskOverview: React.FC = () => {
   return (
     <>
       <div className="flex flex-col gap-2 mt-2">
@@ -11,7 +19,9 @@ export default function TaskOverview() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <ReportCard
-          cardIcon="calender"
+          cardIcon={
+            <FontAwesomeIcon icon={faCalendarDay} className="text-xl" />
+          }
           cardTitle="سررسید امروز"
           cardSubtitle="وظایف نیازمند تکمیل"
           cardNumber={12}
@@ -19,7 +29,9 @@ export default function TaskOverview() {
           iconBgColor="pinkSubtle"
         />
         <ReportCard
-          cardIcon="triangle"
+          cardIcon={
+            <FontAwesomeIcon icon={faTriangleExclamation} className="text-xl" />
+          }
           cardTitle="موعد گذشته"
           cardSubtitle="نیازمند توجه"
           cardNumber={3}
@@ -27,7 +39,9 @@ export default function TaskOverview() {
           iconBgColor="redSubtle"
         />
         <ReportCard
-          cardIcon="done"
+          cardIcon={
+            <FontAwesomeIcon icon={faCircleCheck} className="text-xl" />
+          }
           cardTitle="تکمیل‌شده"
           cardSubtitle="این هفته"
           cardNumber={28}
@@ -35,7 +49,7 @@ export default function TaskOverview() {
           iconBgColor="greenSubtle"
         />
         <ReportCard
-          cardIcon="chart"
+          cardIcon={<FontAwesomeIcon icon={faChartLine} className="text-xl" />}
           cardTitle="پیشرفت"
           cardSubtitle="تکمیل کلی"
           cardNumber="78%"
@@ -45,4 +59,6 @@ export default function TaskOverview() {
       </div>
     </>
   );
-}
+};
+
+export default TaskOverview;

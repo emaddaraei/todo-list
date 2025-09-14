@@ -12,3 +12,5 @@ export const ColorClasses = {
   graySubtle: 'bg-gray-100',
   yellowSubtle: 'bg-yellow-100',
 };
+
+export type ColorKey = keyof typeof ColorClasses;
