@@ -2,7 +2,11 @@
 
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPlus,
+  faMagnifyingGlass,
+  faChevronDown,
+} from '@fortawesome/free-solid-svg-icons';
 import TaskCard from './taskCard';
 import { initialTasks } from './../../constants/tasks';
 
@@ -16,6 +20,7 @@ export default function TodayTask() {
       )
     );
   };
+  const [selectedPriority, setSelectedPriority] = useState('all');
 
   return (
     <div className="flex flex-col py-4 border border-gray-200 rounded-lg gap-4 h-fit">
@@ -28,12 +33,33 @@ export default function TodayTask() {
           </button>
         </div>
         <div className="flex items-center justify-between gap-4">
-          <span className="flex border border-gray-200 rounded-lg grow items-center px-4 py-2 hover:shadow-xs">
-            جستجو...
-          </span>
-          <span className="flex border border-gray-200 rounded-lg w-fit items-center px-4 py-2">
-            فیلتر
-          </span>
+          <div className="flex justify-between items-center grow border rounded-lg border-gray-200 hover:border-pink-500">
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              className="text-gray-400 px-4"
+            />
+            <input
+              type="text"
+              placeholder="جستجو..."
+              className="w-full border border-none rounded-lg py-2 focus:outline-none text-sm"
+            />
+          </div>
+          <div className="flex justify-between w-fit items-center border rounded-lg border-gray-200 hover:border-pink-500">
+            <select
+              value={selectedPriority}
+              onChange={e => setSelectedPriority(e.target.value)}
+              className="appearance-none border-none focus:outline-none text-sm border border-gray-200 rounded-lg px-4 py-2 cursor-pointer"
+            >
+              <option value="all">همه</option>
+              <option value="high">اولویت بالا</option>
+              <option value="medium">اولویت متوسط</option>
+              <option value="low">اولویت پایین</option>
+            </select>
+            <FontAwesomeIcon
+              icon={faChevronDown}
+              className="text-gray-400 px-2"
+            />
+          </div>
         </div>
       </div>
 
