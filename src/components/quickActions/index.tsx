@@ -1,9 +1,10 @@
 import { Block } from '../layout/block';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList, faPlus, faShare } from '@fortawesome/free-solid-svg-icons';
-import { Button } from '../ui/button';
+import Button from '../ui/button';
+import React from 'react';
 
-export default function QuickAction() {
+const QuickAction: React.FC = () => {
   return (
     <Block>
       <div className="flex flex-col gap-3">
@@ -29,4 +30,6 @@ export default function QuickAction() {
       </div>
     </Block>
   );
-}
+};
+
+export default QuickAction;

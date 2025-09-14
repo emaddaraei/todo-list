@@ -2,8 +2,9 @@ import TodayTask from '../components/todayTask';
 import TaskOverview from './../components/taskOverview';
 import RecentActivities from '../components/recentActivities';
 import QuickActions from '../components/quickActions';
+import React from 'react';
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <div className="container min-h-screen p-8 flex flex-col gap-8 mx-auto">
       <TaskOverview />
@@ -19,4 +20,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default Home;

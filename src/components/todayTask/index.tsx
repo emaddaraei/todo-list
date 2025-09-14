@@ -8,21 +8,22 @@ import {
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
 import TaskCard from './taskCard';
-import { initialTasks } from './../../constants/tasks';
+import { initialTasks } from '../../constants/tasks';
 import { Block } from '../layout/block';
-import { Button } from '../ui/button';
+import Button from '../ui/button';
+import React from 'react';
 
-export default function TodayTask() {
+const TodayTask: React.FC = () => {
   const [tasks, setTasks] = useState(initialTasks);
+  const [selectedPriority, setSelectedPriority] = useState('all');
 
-  const handleCheckChange = taskId => {
+  const handleCheckChange = (taskId: string) => {
     setTasks(
       tasks.map(task =>
         task.id === taskId ? { ...task, isChecked: !task.isChecked } : task
       )
     );
   };
-  const [selectedPriority, setSelectedPriority] = useState('all');
 
   return (
     <Block>
@@ -81,4 +82,6 @@ export default function TodayTask() {
       </div>
     </Block>
   );
-}
+};
+
+export default TodayTask;

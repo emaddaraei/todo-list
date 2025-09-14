@@ -1,7 +1,8 @@
 import { Block } from '../layout/block';
 import BulletItem from './bulletItem';
+import React from 'react';
 
-export default function RecentActivities() {
+const RecentActivities: React.FC = () => {
   return (
     <Block>
       <h2 className="text-md font-bold">فعالیت‌های اخیر</h2>
@@ -24,4 +25,6 @@ export default function RecentActivities() {
       </div>
     </Block>
   );
-}
+};
+
+export default RecentActivities;

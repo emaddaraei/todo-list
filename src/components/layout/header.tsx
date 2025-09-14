@@ -7,25 +7,28 @@ import { usePathname } from 'next/navigation';
 import logoSrc from '../../assets/images/logo.png';
 import profileSrc from '../../assets/images/profile.png';
 import { useState } from 'react';
+import React from 'react';
 
-const menuItems = [
+type MenuItem = {
+  title: string;
+  href: string;
+};
+
+const menuItems: MenuItem[] = [
   { title: 'صفحه اصلی', href: '/' },
   { title: 'خدمات', href: '/services' },
   { title: 'درباره ما', href: '/about' },
   { title: 'تماس با ما', href: '/contact' },
 ];
 
-export default function Header() {
+const Header: React.FC = () => {
   const pathname = usePathname();
-
-  // Hamburger menu state
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
       <header className="fixed w-full border-b border-gray-200 bg-white z-50">
         <div className="container mx-auto py-4 px-8 flex items-center justify-between">
-          {/* Logo + Title + Menu (Desktop) */}
           <div className="flex items-center gap-10">
             <a href="/" className="flex items-center">
               <div className="flex items-center gap-2">
@@ -57,12 +60,10 @@ export default function Header() {
               </nav>
             </div>
           </div>
-          {/* Profile Images (Desktop) */}
           <div className="hidden md:flex items-center gap-4">
             <Image src={profileSrc} alt="Profile" width={40} height={40} />
             <FontAwesomeIcon icon={faMoon} className="text-gray-500" />
           </div>
-          {/* Hamburger Button */}
           <button
             className="md:hidden flex flex-col justify-center items-center w-10 h-10"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -124,4 +125,6 @@ export default function Header() {
       )}
     </>
   );
-}
+};
+
+export default Header;
