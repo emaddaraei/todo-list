@@ -117,7 +117,7 @@ export default function Header() {
             </ul>
             <div className="flex items-center gap-3 mt-auto">
               <Image src={profileSrc} alt="Profile" width={40} height={40} />
-              <Image src={profileSrc} alt="Profile" width={40} height={40} />
+              <FontAwesomeIcon icon={faMoon} className="text-gray-500" />
             </div>
           </div>
         </div>
